@@ -14,7 +14,5 @@ function threeSum(arr, target) {
 			}
 		}
 	}
-	return sum
+	console.log(sum)
 }
-
-module.exports = threeSum;
