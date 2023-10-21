@@ -1,18 +1,37 @@
 function threeSum(arr, target) {
 // write your code here
-  let initial=Infinity
-	  let ans=-1;
-	let n=arr.length;
-	for(let i=0;i<=n-3;i++){
-		for(let j=i+1;j<=n-2;j++){
-			for(let k=j+1;k<=n-1;k++){
-				sum=arr[i]+arr[j]+arr[k]
-				let diff= Math.abs(sum-target)
-				if(initial > diff){
-					ans=sum;
-				}
-			}
-		}
-	}
-	console.log(sum)
+   nums.sort((a, b) => a - b);
+
+    // Initialize variables to store the result and the minimum difference
+    let result;
+    let minDiff = Infinity;
+
+    // Iterate through the array
+    for (let i = 0; i < nums.length - 2; i++) {
+        let left = i + 1;
+        let right = nums.length - 1;
+
+        while (left < right) {
+            // Calculate the current sum
+            const currentSum = nums[i] + nums[left] + nums[right];
+
+            // Calculate the difference between the current sum and the target
+            const diff = Math.abs(currentSum - target);
+
+            // Update the result if the current difference is smaller than the minimum difference
+            if (diff < minDiff) {
+                minDiff = diff;
+                result = currentSum;
+            }
+
+            // Adjust the pointers based on the comparison with the target
+            if (currentSum < target) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+    }
+
+	console.log(result)
 }
